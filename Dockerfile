@@ -14,7 +14,7 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git .
 
 # Install PyTorch 2.3.0 with CUDA 12.4 support
 RUN pip install --upgrade pip && \
-    pip install torch==2.3.0 torchvision --index-url https://download.pytorch.org/whl/cu124 && \
+    pip install torch==2.6.0+cu124 torchvision --extra-index-url https://download.pytorch.org/whl/cu124 && \
     pip install -r requirements.txt
 
 # Install ComfyUI custom nodes
