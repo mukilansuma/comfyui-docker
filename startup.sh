@@ -35,5 +35,9 @@ download_if_missing models/checkpoints/flux1-dev-kontext_fp8_scaled.safetensors 
 
 echo "🟢 All models ready. Launching ComfyUI..."
 
-# Start ComfyUI
-python main.py --listen 0.0.0.0 --port 8188
+# Start ComfyUI in background
+python main.py --listen 0.0.0.0 --port 8188 &
+
+# Start lightweight HTTP status endpoint (on port 9999)
+echo "🟢 Starting status endpoint on port 9999..."
+while true; do { echo -e 'HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{"status":"ready"}'; } | nc -l -p 9999 -q 1; done
