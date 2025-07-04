@@ -19,7 +19,7 @@ RUN git clone https://github.com/ltdrdata/ComfyUI-Manager.git custom_nodes/Comfy
 COPY startup.sh /ComfyUI/startup.sh
 RUN chmod +x /ComfyUI/startup.sh
 
-EXPOSE 8188
+EXPOSE 8188 9999
 
 # Run startup script on container start
 CMD ["bash", "startup.sh"]
