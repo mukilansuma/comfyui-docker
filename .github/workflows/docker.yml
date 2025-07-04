@@ -22,4 +22,4 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        tags: yourdockerhubusername/comfyui-template:latest
+        tags: mukilansuma29/comfyui-template:latest
