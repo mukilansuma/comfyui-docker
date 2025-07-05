@@ -20,7 +20,7 @@ RUN pip install --upgrade pip && \
 # Install ComfyUI custom nodes
 RUN git clone https://github.com/ltdrdata/ComfyUI-Manager.git custom_nodes/ComfyUI-Manager && \
     git clone https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git custom_nodes/ComfyUI-Advanced-ControlNet && \
-    git clone https://github.com/ai-cg-lab/cg-use-everywhere.git custom_nodes/cg-use-everywhere
+    git clone https://github.com/chrisgoringe/cg-use-everywhere custom_nodes/cg-use-everywhere
 
 # Copy startup script that handles model download + status endpoint
 COPY startup.sh /ComfyUI/startup.sh
