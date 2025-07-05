@@ -12,14 +12,15 @@ WORKDIR /ComfyUI
 # Clone ComfyUI repo
 RUN git clone https://github.com/comfyanonymous/ComfyUI.git .
 
-# Install PyTorch 2.3.0 with CUDA 12.4 support
+# Install PyTorch 2.6.0 with CUDA 12.4 support
 RUN pip install --upgrade pip && \
     pip install torch==2.6.0+cu124 torchvision --extra-index-url https://download.pytorch.org/whl/cu124 && \
     pip install -r requirements.txt
 
 # Install ComfyUI custom nodes
 RUN git clone https://github.com/ltdrdata/ComfyUI-Manager.git custom_nodes/ComfyUI-Manager && \
-    git clone https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git custom_nodes/ComfyUI-Advanced-ControlNet
+    git clone https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git custom_nodes/ComfyUI-Advanced-ControlNet && \
+    git clone https://github.com/ai-cg-lab/cg-use-everywhere.git custom_nodes/cg-use-everywhere
 
 # Copy startup script that handles model download + status endpoint
 COPY startup.sh /ComfyUI/startup.sh
